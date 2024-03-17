@@ -10,5 +10,5 @@
 código otimizado e lidar diretamente com a alocação de memória e recursos do sistema. Isso é especialmente importante
 em aplicativos que exigem alta velocidade ou têm restrições de recursos. 
 
-##O que realmente é orientação a objeto?
+## O que realmente é orientação a objeto?
  - Organizar códigos em componentes lógicos que facilitam a programação
