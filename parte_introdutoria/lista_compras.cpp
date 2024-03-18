@@ -12,7 +12,7 @@ struct produto
 
 int main(){
 
-    produto *listaCompras;
+    produto *listaCompras = nullptr;
     int i=0, opcao=8;
 
     while (opcao!= 0)
@@ -22,31 +22,44 @@ int main(){
         {
         case 1:
             ++i;
-            listaCompras = new produto[i];
-            int quatidadeProduto;
+            produto *copiaLista = new produto[i];
+            if(i>1){
 
-            std :: cout << "Digite o nome do produto";
-            char nome[50];
-            std :: cin >>nome;
-            strcpy(listaCompras[i-1].nome, nome);
+                for (int a = 0; a < i-1; a++)
+                {
+                    strcpy(copiaLista[a].nome,listaCompras[a].nome);
+                    copiaLista[a].preco = listaCompras[a].preco;
+                    copiaLista[a].quantidade = listaCompras[a].quantidade;
+                }
+
+                
+            }
             
-
-            std :: cout <<"Digite a quantidade:";
+           
+            char nome[50];
+            std :: cout << "Digite o nome do produto : ";
+            std :: cin >>nome;
+            strcpy(copiaLista[i-1].nome, nome);
+            
+            int quatidadeProduto;
+            std :: cout <<"Digite a quantidade em estoque: ";
             std :: cin >> quatidadeProduto;
-            listaCompras[i-1].quantidade = quatidadeProduto;
+            copiaLista[i-1].quantidade = quatidadeProduto;
 
             float preco;
-
             std :: cout << "Digite o preco do produto : ";
             std :: cin >> preco;
+            copiaLista[i-1].preco = preco;
 
-            listaCompras[i-1].preco = preco;
+            listaCompras = new produto[i];
+       
+             listaCompras = copiaLista;
+            
+           
 
-
+            std :: cout << "\n---------------------------------\n";
             break;
         
-        default:
-            break;
         }
     }
 
@@ -55,6 +68,6 @@ int main(){
 
    
 
-    std :: cout <<  listaCompras[0].quantidade<<listaCompras[0].nome;
+    std :: cout << "quantidade : "<< listaCompras[0].quantidade <<"\nNome: " <<listaCompras[0].nome;
     
 }
