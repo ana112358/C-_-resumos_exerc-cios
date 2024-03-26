@@ -2,10 +2,12 @@
 
 int fatorial(int num){
     if(num==1){
+        std::cout<< num;
         return 1;
     }else{
+        std::cout<< num<<" * ";
         return num *fatorial(num-1);
-        std::cout<< num<<"-";
+        
     }
 }
 
@@ -20,6 +22,6 @@ int main(){
 
     resultado = fatorial(numFatorial);
 
-    std:: cout <<numFatorial<<"! = "<<resultado;
+    std:: cout <<" = "<<resultado;
     return 0;
 }
